@@ -34,3 +34,7 @@ Note: if you feel an item is missing in this list, please let us know!
 * Catel
   https://github.com/catel/catel
   Original license: MIT
+  
+* FluentValidation
+  https://github.com/JeremySkinner/FluentValidation
+  Original license: Apache License 2.0
