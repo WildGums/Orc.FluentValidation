@@ -1,8 +1,9 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FluentValidatorToCatelValidatorAdapter.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
+// <copyright file="FluentValidatorToCatelValidatorAdapter.cs" company="WildGums">
+//   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 
 namespace Orc.FluentValidation
 {
@@ -20,8 +21,7 @@ namespace Orc.FluentValidation
     /// </summary>
     public class FluentValidatorToCatelValidatorAdapter : ValidatorBase<ModelBase>
     {
-        #region Constants and Fields
-
+        #region Fields
         /// <summary>
         /// The validator.
         /// </summary>
@@ -31,11 +31,9 @@ namespace Orc.FluentValidation
         /// The validator description attribute.
         /// </summary>
         private readonly ValidatorDescriptionAttribute _validatorDescriptionAttribute;
-
         #endregion
 
-        #region Constructors and Destructors
-
+        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentValidatorToCatelValidatorAdapter"/> class.
         /// </summary>
@@ -44,17 +42,15 @@ namespace Orc.FluentValidation
         /// </param>
         private FluentValidatorToCatelValidatorAdapter(Type validatorType)
         {
-            _validator = (global::FluentValidation.IValidator)Activator.CreateInstance(validatorType);
+            _validator = (global::FluentValidation.IValidator) Activator.CreateInstance(validatorType);
             if (!validatorType.TryGetAttribute(out _validatorDescriptionAttribute))
             {
                 _validatorDescriptionAttribute = new ValidatorDescriptionAttribute(validatorType.Name);
             }
         }
-
         #endregion
 
-        #region Public Methods and Operators
-
+        #region Methods
         /// <summary>
         /// The validate business rules.
         /// </summary>
@@ -69,9 +65,9 @@ namespace Orc.FluentValidation
                 if (!validationResult.IsValid)
                 {
                     validationResults.AddRange(validationResult.Errors.Select(validationFailure => new BusinessRuleValidationResult(
-                    _validatorDescriptionAttribute.ValidationResultType, validationFailure.ErrorMessage)
+                        _validatorDescriptionAttribute.ValidationResultType, validationFailure.ErrorMessage)
                     {
-                        Tag = _validatorDescriptionAttribute.Tag 
+                        Tag = _validatorDescriptionAttribute.Tag
                     }).Cast<IBusinessRuleValidationResult>());
                 }
             }
@@ -89,19 +85,15 @@ namespace Orc.FluentValidation
                 var validationResult = _validator.Validate(instance);
                 if (!validationResult.IsValid)
                 {
-                    validationResults.AddRange(validationResult.Errors.Select(fieldValidationResult =>new FieldValidationResult(
-                                fieldValidationResult.PropertyName, _validatorDescriptionAttribute.ValidationResultType,
-                                fieldValidationResult.ErrorMessage)
-                                {
-                                    Tag = _validatorDescriptionAttribute.Tag 
-                                }).Cast<IFieldValidationResult>());
+                    validationResults.AddRange(validationResult.Errors.Select(fieldValidationResult => new FieldValidationResult(
+                        fieldValidationResult.PropertyName, _validatorDescriptionAttribute.ValidationResultType,
+                        fieldValidationResult.ErrorMessage)
+                    {
+                        Tag = _validatorDescriptionAttribute.Tag
+                    }).Cast<IFieldValidationResult>());
                 }
             }
         }
-
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Creates an instance of <see cref="IValidator" /> from an <see cref="AbstractValidator{T}" /> type implementation.
@@ -131,7 +123,7 @@ namespace Orc.FluentValidation
         public static IValidator From(IList<Type> validatorTypes)
         {
             Argument.IsNotNull("validatorTypes", validatorTypes);
-            
+
             if (validatorTypes.Count == 0)
             {
                 throw new ArgumentException("Argument 'validatorTypes' must contains at least one element.");
@@ -161,12 +153,11 @@ namespace Orc.FluentValidation
         /// </summary>
         /// <typeparam name="TValidator">Type of <c>FluentValidation.IValidator</c>.</typeparam>
         /// <returns>An instance of <see cref="FluentValidatorToCatelValidatorAdapter" />.</returns>
-        public static IValidator From<TValidator>() 
+        public static IValidator From<TValidator>()
             where TValidator : global::FluentValidation.IValidator, new()
         {
             return new FluentValidatorToCatelValidatorAdapter(typeof(TValidator));
         }
-
         #endregion
     }
 }

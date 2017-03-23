@@ -1,19 +1,17 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FluentValidatorProvider.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
+// <copyright file="FluentValidatorProvider.cs" company="WildGums">
+//   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 
 namespace Orc.FluentValidation
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
-    using Catel;
     using Catel.Data;
     using Catel.Reflection;
-    using FluentValidation;
     using global::FluentValidation;
     using IValidator = Catel.Data.IValidator;
 
@@ -25,8 +23,7 @@ namespace Orc.FluentValidation
     /// </remarks>
     public class FluentValidatorProvider : ValidatorProviderBase
     {
-        #region Constructors and Destructors
-
+        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentValidatorProvider"/> class.
         /// </summary>
@@ -45,11 +42,9 @@ namespace Orc.FluentValidation
                 return displayName;
             };
         }
-
         #endregion
 
-        #region Public Methods and Operators
-
+        #region Methods
         /// <summary>
         /// Gets a validator for the specified target type.
         /// </summary>
@@ -109,7 +104,6 @@ namespace Orc.FluentValidation
 
             return validator;
         }
-
         #endregion
     }
 }
