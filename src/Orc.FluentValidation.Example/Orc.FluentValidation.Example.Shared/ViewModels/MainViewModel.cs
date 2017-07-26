@@ -18,6 +18,7 @@ namespace Orc.FluentValidation.ViewModels
     {
         public MainViewModel()
         {
+            Title = "Orc.FluentValidation example";
         }
 
         #region Properties
