@@ -25,18 +25,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{672B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation", "Orc.FluentValidation\Orc.FluentValidation.csproj", "{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.FluentValidation.Tests.Shared", "Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.shproj", "{579FDB9B-1F3A-4E6D-937C-E4870518B69D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.Tests.NET", "Orc.FluentValidation.Tests.NET\Orc.FluentValidation.Tests.NET.csproj", "{53F5B7A5-08A8-4C6C-B676-284FC94EF120}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.FluentValidation.Example.Shared", "Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.shproj", "{7B5851A0-996F-4CA8-AAF0-F8636E33394C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Example.NET", "Orc.FluentValidation.Example.NET\Orc.FluentValidation.Example.NET.csproj", "{A9AA730C-D0BA-4364-9513-0922DFCE1204}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Tests", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.csproj", "{4F31D765-6136-45BC-A7A2-9699779B6F3D}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.projitems*{53f5b7a5-08a8-4c6c-b676-284fc94ef120}*SharedItemsImports = 4
-		Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.projitems*{579fdb9b-1f3a-4e6d-937c-e4870518b69d}*SharedItemsImports = 13
 		Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.projitems*{7b5851a0-996f-4ca8-aaf0-f8636e33394c}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,14 +44,14 @@ Global
 		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,10 +61,9 @@ Global
 		{D3EA1078-BF3D-4709-871C-AAFF70B95045} = {A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}
 		{672BFA2E-9F93-496F-B188-40579FB5D301} = {A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}
 		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112} = {0787DFC6-AB24-4D00-A8A4-FF203DC7D080}
-		{579FDB9B-1F3A-4E6D-937C-E4870518B69D} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
 		{7B5851A0-996F-4CA8-AAF0-F8636E33394C} = {672BFA2E-9F93-496F-B188-40579FB5D301}
 		{A9AA730C-D0BA-4364-9513-0922DFCE1204} = {672BFA2E-9F93-496F-B188-40579FB5D301}
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CAB892D4-072B-4291-88A5-E63D59F96765}
