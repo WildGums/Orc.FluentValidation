@@ -10,7 +10,7 @@ namespace Orc.FluentValidation.Tests
     using System.Collections.Generic;
 
     using Catel.Data;
-    using Catel.Test;
+    using Catel.Tests;
     using NUnit.Framework;
     using Validators;
 
