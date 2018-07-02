@@ -10,6 +10,11 @@
     <PackageTags>orc;fluent;validation</PackageTags>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <!-- SonarQube requires a project guid -->
+    <ProjectGuid>B156A72E-C2BB-4967-9A9D-5F4322A2814D</ProjectGuid>
+  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="7.5.2" />
     <PackageReference Include="MethodTimer.Fody" Version="2.1.0" PrivateAssets="all" />
