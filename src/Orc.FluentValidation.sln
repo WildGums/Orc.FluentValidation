@@ -2,121 +2,71 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.NET47", "Orc.FluentValidation\Orc.FluentValidation.NET47\Orc.FluentValidation.NET47.csproj", "{348F7108-04C3-4528-8D4E-9D537CD3FA87}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{1FE0D431-A761-4239-B2D6-D32C70723FD2}"
 	ProjectSection(SolutionItems) = preProject
+		Directory.build.project.props = Directory.build.project.props
+		Directory.build.props = Directory.build.props
+		Directory.build.shared.explicit.props = Directory.build.shared.explicit.props
+		Directory.build.shared.implicit.props = Directory.build.shared.implicit.props
+		Directory.build.shared.mat.props = Directory.build.shared.mat.props
+		Directory.build.targets = Directory.build.targets
 		GlobalSuppressions.cs = GlobalSuppressions.cs
 		nuget.config = nuget.config
 		Orc.FluentValidation.sln.DotSettings = Orc.FluentValidation.sln.DotSettings
 		SolutionAssemblyInfo.cs = SolutionAssemblyInfo.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.Tests.NET47", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.NET47\Orc.FluentValidation.Tests.NET47.csproj", "{8058A85D-867E-4C8B-A419-12344C4CADEA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0787DFC6-AB24-4D00-A8A4-FF203DC7D080}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D3EA1078-BF3D-4709-871C-AAFF70B95045}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.FluentValidation.Shared", "Orc.FluentValidation\Orc.FluentValidation.Shared\Orc.FluentValidation.Shared.shproj", "{5B8BFEE7-FAF9-4A6A-9FAB-E337B7CBBEFE}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.FluentValidation.Tests.Shared", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.shproj", "{579FDB9B-1F3A-4E6D-937C-E4870518B69D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.NET45", "Orc.FluentValidation\Orc.FluentValidation.NET45\Orc.FluentValidation.NET45.csproj", "{99DFA1C0-0509-46F4-9C08-D9F58B873ABA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.Tests.NET45", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.NET45\Orc.FluentValidation.Tests.NET45.csproj", "{34FC31A7-1653-4AE3-A7A2-BB572B4D6EC3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{672BFA2E-9F93-496F-B188-40579FB5D301}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.Example.NET47", "Orc.FluentValidation.Example\Orc.FluentValidation.Example.NET47\Orc.FluentValidation.Example.NET47.csproj", "{D21581FB-F48E-460E-AF87-60CBCB996B7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation", "Orc.FluentValidation\Orc.FluentValidation.csproj", "{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.FluentValidation.Example.Shared", "Orc.FluentValidation.Example\Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.shproj", "{7B5851A0-996F-4CA8-AAF0-F8636E33394C}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.FluentValidation.Example.Shared", "Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.shproj", "{7B5851A0-996F-4CA8-AAF0-F8636E33394C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.Example.NET45", "Orc.FluentValidation.Example\Orc.FluentValidation.Example.NET45\Orc.FluentValidation.Example.NET45.csproj", "{E6584E74-4A6A-4DC5-8EC4-2FA05BA5BB2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Example.NET", "Orc.FluentValidation.Example.NET\Orc.FluentValidation.Example.NET.csproj", "{A9AA730C-D0BA-4364-9513-0922DFCE1204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.NET46", "Orc.FluentValidation\Orc.FluentValidation.NET46\Orc.FluentValidation.NET46.csproj", "{9B672BCB-86B8-4356-B930-CFE8425A8334}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.Tests.NET46", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.NET46\Orc.FluentValidation.Tests.NET46.csproj", "{53F5B7A5-08A8-4C6C-B676-284FC94EF120}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.FluentValidation.Example.NET46", "Orc.FluentValidation.Example\Orc.FluentValidation.Example.NET46\Orc.FluentValidation.Example.NET46.csproj", "{B79A9843-CBF8-44B6-A9AF-606F3DA91D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Tests", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.csproj", "{4F31D765-6136-45BC-A7A2-9699779B6F3D}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Orc.FluentValidation\Orc.FluentValidation.Shared\Orc.FluentValidation.Shared.projitems*{348f7108-04c3-4528-8d4e-9d537cd3fa87}*SharedItemsImports = 4
-		Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.projitems*{34fc31a7-1653-4ae3-a7a2-bb572b4d6ec3}*SharedItemsImports = 4
-		Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.projitems*{53f5b7a5-08a8-4c6c-b676-284fc94ef120}*SharedItemsImports = 4
-		Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.projitems*{579fdb9b-1f3a-4e6d-937c-e4870518b69d}*SharedItemsImports = 13
-		Orc.FluentValidation\Orc.FluentValidation.Shared\Orc.FluentValidation.Shared.projitems*{5b8bfee7-faf9-4a6a-9fab-e337b7cbbefe}*SharedItemsImports = 13
-		Orc.FluentValidation.Example\Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.projitems*{7b5851a0-996f-4ca8-aaf0-f8636e33394c}*SharedItemsImports = 13
-		Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.Shared\Orc.FluentValidation.Tests.Shared.projitems*{8058a85d-867e-4c8b-a419-12344c4cadea}*SharedItemsImports = 4
-		Orc.FluentValidation\Orc.FluentValidation.Shared\Orc.FluentValidation.Shared.projitems*{99dfa1c0-0509-46f4-9c08-d9f58b873aba}*SharedItemsImports = 4
-		Orc.FluentValidation\Orc.FluentValidation.Shared\Orc.FluentValidation.Shared.projitems*{9b672bcb-86b8-4356-b930-cfe8425a8334}*SharedItemsImports = 4
-		Orc.FluentValidation.Example\Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.projitems*{b79a9843-cbf8-44b6-a9af-606f3da91d0a}*SharedItemsImports = 4
-		Orc.FluentValidation.Example\Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.projitems*{d21581fb-f48e-460e-af87-60cbcb996b7f}*SharedItemsImports = 4
-		Orc.FluentValidation.Example\Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.projitems*{e6584e74-4a6a-4dc5-8ec4-2fa05ba5bb2a}*SharedItemsImports = 4
+		Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.projitems*{7b5851a0-996f-4ca8-aaf0-f8636e33394c}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{348F7108-04C3-4528-8D4E-9D537CD3FA87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{348F7108-04C3-4528-8D4E-9D537CD3FA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{348F7108-04C3-4528-8D4E-9D537CD3FA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{348F7108-04C3-4528-8D4E-9D537CD3FA87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8058A85D-867E-4C8B-A419-12344C4CADEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8058A85D-867E-4C8B-A419-12344C4CADEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8058A85D-867E-4C8B-A419-12344C4CADEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8058A85D-867E-4C8B-A419-12344C4CADEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99DFA1C0-0509-46F4-9C08-D9F58B873ABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99DFA1C0-0509-46F4-9C08-D9F58B873ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99DFA1C0-0509-46F4-9C08-D9F58B873ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99DFA1C0-0509-46F4-9C08-D9F58B873ABA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34FC31A7-1653-4AE3-A7A2-BB572B4D6EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34FC31A7-1653-4AE3-A7A2-BB572B4D6EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34FC31A7-1653-4AE3-A7A2-BB572B4D6EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34FC31A7-1653-4AE3-A7A2-BB572B4D6EC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D21581FB-F48E-460E-AF87-60CBCB996B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D21581FB-F48E-460E-AF87-60CBCB996B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D21581FB-F48E-460E-AF87-60CBCB996B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D21581FB-F48E-460E-AF87-60CBCB996B7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6584E74-4A6A-4DC5-8EC4-2FA05BA5BB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6584E74-4A6A-4DC5-8EC4-2FA05BA5BB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6584E74-4A6A-4DC5-8EC4-2FA05BA5BB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6584E74-4A6A-4DC5-8EC4-2FA05BA5BB2A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B672BCB-86B8-4356-B930-CFE8425A8334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B672BCB-86B8-4356-B930-CFE8425A8334}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B672BCB-86B8-4356-B930-CFE8425A8334}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B672BCB-86B8-4356-B930-CFE8425A8334}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B79A9843-CBF8-44B6-A9AF-606F3DA91D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B79A9843-CBF8-44B6-A9AF-606F3DA91D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B79A9843-CBF8-44B6-A9AF-606F3DA91D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B79A9843-CBF8-44B6-A9AF-606F3DA91D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9AA730C-D0BA-4364-9513-0922DFCE1204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{348F7108-04C3-4528-8D4E-9D537CD3FA87} = {0787DFC6-AB24-4D00-A8A4-FF203DC7D080}
-		{8058A85D-867E-4C8B-A419-12344C4CADEA} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
 		{0787DFC6-AB24-4D00-A8A4-FF203DC7D080} = {A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}
 		{D3EA1078-BF3D-4709-871C-AAFF70B95045} = {A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}
-		{5B8BFEE7-FAF9-4A6A-9FAB-E337B7CBBEFE} = {0787DFC6-AB24-4D00-A8A4-FF203DC7D080}
-		{579FDB9B-1F3A-4E6D-937C-E4870518B69D} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
-		{99DFA1C0-0509-46F4-9C08-D9F58B873ABA} = {0787DFC6-AB24-4D00-A8A4-FF203DC7D080}
-		{34FC31A7-1653-4AE3-A7A2-BB572B4D6EC3} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
 		{672BFA2E-9F93-496F-B188-40579FB5D301} = {A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}
-		{D21581FB-F48E-460E-AF87-60CBCB996B7F} = {672BFA2E-9F93-496F-B188-40579FB5D301}
+		{C8CEB6A7-488B-4C03-8ED9-F88D45E70112} = {0787DFC6-AB24-4D00-A8A4-FF203DC7D080}
 		{7B5851A0-996F-4CA8-AAF0-F8636E33394C} = {672BFA2E-9F93-496F-B188-40579FB5D301}
-		{E6584E74-4A6A-4DC5-8EC4-2FA05BA5BB2A} = {672BFA2E-9F93-496F-B188-40579FB5D301}
-		{9B672BCB-86B8-4356-B930-CFE8425A8334} = {0787DFC6-AB24-4D00-A8A4-FF203DC7D080}
-		{53F5B7A5-08A8-4C6C-B676-284FC94EF120} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
-		{B79A9843-CBF8-44B6-A9AF-606F3DA91D0A} = {672BFA2E-9F93-496F-B188-40579FB5D301}
+		{A9AA730C-D0BA-4364-9513-0922DFCE1204} = {672BFA2E-9F93-496F-B188-40579FB5D301}
+		{4F31D765-6136-45BC-A7A2-9699779B6F3D} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAB892D4-072B-4291-88A5-E63D59F96765}
 	EndGlobalSection
 EndGlobal
