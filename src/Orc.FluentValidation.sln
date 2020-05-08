@@ -31,9 +31,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Tests", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.csproj", "{4F31D765-6136-45BC-A7A2-9699779B6F3D}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.projitems*{7b5851a0-996f-4ca8-aaf0-f8636e33394c}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -60,7 +57,6 @@ Global
 		{D3EA1078-BF3D-4709-871C-AAFF70B95045} = {A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}
 		{672BFA2E-9F93-496F-B188-40579FB5D301} = {A8A1A4EE-E04A-43AB-90C9-41E7B82EE1E5}
 		{B156A72E-C2BB-4967-9A9D-5F4322A2814D} = {0787DFC6-AB24-4D00-A8A4-FF203DC7D080}
-		{7B5851A0-996F-4CA8-AAF0-F8636E33394C} = {672BFA2E-9F93-496F-B188-40579FB5D301}
 		{A9AA730C-D0BA-4364-9513-0922DFCE1204} = {672BFA2E-9F93-496F-B188-40579FB5D301}
 		{4F31D765-6136-45BC-A7A2-9699779B6F3D} = {D3EA1078-BF3D-4709-871C-AAFF70B95045}
 	EndGlobalSection
