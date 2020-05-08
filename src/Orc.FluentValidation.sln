@@ -26,9 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{672B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation", "Orc.FluentValidation\Orc.FluentValidation.csproj", "{B156A72E-C2BB-4967-9A9D-5F4322A2814D}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.FluentValidation.Example.Shared", "Orc.FluentValidation.Example.Shared\Orc.FluentValidation.Example.Shared.shproj", "{7B5851A0-996F-4CA8-AAF0-F8636E33394C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Example.NET", "Orc.FluentValidation.Example.NET\Orc.FluentValidation.Example.NET.csproj", "{A9AA730C-D0BA-4364-9513-0922DFCE1204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Example", "Orc.FluentValidation.Example\Orc.FluentValidation.Example.csproj", "{A9AA730C-D0BA-4364-9513-0922DFCE1204}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orc.FluentValidation.Tests", "Orc.FluentValidation.Tests\Orc.FluentValidation.Tests.csproj", "{4F31D765-6136-45BC-A7A2-9699779B6F3D}"
 EndProject
