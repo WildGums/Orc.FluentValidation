@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="FluentValidatorProvider.cs" company="WildGums">
 //   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
 // </copyright>
@@ -29,12 +29,12 @@ namespace Orc.FluentValidation
         /// </summary>
         public FluentValidatorProvider()
         {
-            ValidatorOptions.CascadeMode = CascadeMode.StopOnFirstFailure;
-            ValidatorOptions.DisplayNameResolver = (type, member, expression) =>
+            ValidatorOptions.Global.CascadeMode = CascadeMode.StopOnFirstFailure;
+            ValidatorOptions.Global.DisplayNameResolver = (type, member, expression) =>
             {
-                Catel.ComponentModel.DisplayNameAttribute displayNameAttribute;
-                string displayName = member.Name;
-                if (member.TryGetAttribute(out displayNameAttribute))
+                var displayName = member.Name;
+
+                if (member.TryGetAttribute(out Catel.ComponentModel.DisplayNameAttribute displayNameAttribute))
                 {
                     displayName = displayNameAttribute.DisplayName;
                 }

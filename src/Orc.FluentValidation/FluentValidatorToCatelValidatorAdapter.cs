@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="FluentValidatorToCatelValidatorAdapter.cs" company="WildGums">
 //   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
 // </copyright>
@@ -60,8 +60,8 @@ namespace Orc.FluentValidation
         {
             if (_validatorDescriptionAttribute.ValidationType == ValidationType.BusinessRule)
             {
-                var validationResult = _validator.Validate(instance);
-
+                var validationContext = new global::FluentValidation.ValidationContext<ModelBase>(instance);
+                var validationResult = _validator.Validate(validationContext);
                 if (!validationResult.IsValid)
                 {
                     validationResults.AddRange(validationResult.Errors.Select(validationFailure => new BusinessRuleValidationResult(
@@ -82,7 +82,8 @@ namespace Orc.FluentValidation
         {
             if (_validatorDescriptionAttribute.ValidationType == ValidationType.Field)
             {
-                var validationResult = _validator.Validate(instance);
+                var validationContext = new global::FluentValidation.ValidationContext<ModelBase>(instance);
+                var validationResult = _validator.Validate(validationContext);
                 if (!validationResult.IsValid)
                 {
                     validationResults.AddRange(validationResult.Errors.Select(fieldValidationResult => new FieldValidationResult(
