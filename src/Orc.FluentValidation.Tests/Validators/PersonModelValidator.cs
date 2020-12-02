@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="PersonModelValidator.cs" company="Catel development team">
 //   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
 // </copyright>
@@ -14,17 +14,15 @@ namespace Orc.FluentValidation.Tests.Validators
     /// </summary>
     public class PersonModelValidator : AbstractValidator<Person>
     {
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonModelValidator"/> class.
         /// </summary>
         public PersonModelValidator()
         {
+            CascadeMode = CascadeMode.Continue;
+
             RuleFor(person => person.FirstName).NotNull().NotEmpty();
             RuleFor(person => person.LastName).NotNull().NotEmpty();
         }
-
-        #endregion
     }
 }

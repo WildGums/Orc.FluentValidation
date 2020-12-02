@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="PersonViewModelValidator.cs" company="Catel development team">
 //   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
 // </copyright>
@@ -20,18 +20,16 @@ namespace Orc.FluentValidation.Tests.Validators
     [ValidatorDescription("Person")]
     public class PersonViewModelValidator : AbstractValidator<PersonViewModel>
     {
-        #region Constructors and Destructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonViewModelValidator"/> class.
         /// </summary>
         public PersonViewModelValidator()
         {
+            CascadeMode = CascadeMode.Continue;
+
             RuleFor(model => model.PersonFirstName).NotNull().NotEmpty();
             RuleFor(model => model.PersonLastName).NotNull().NotEmpty();
         }
-
-        #endregion
     }
 
     /// <summary>
@@ -40,18 +38,16 @@ namespace Orc.FluentValidation.Tests.Validators
     [ValidatorDescription("Person", ValidationResultType.Warning, ValidationType.BusinessRule)]
     public class PersonViewModelValidatorWarnings : AbstractValidator<PersonViewModel>
     {
-        #region Constructors and Destructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonViewModelValidatorWarnings"/> class.
         /// </summary>
         public PersonViewModelValidatorWarnings()
         {
+            CascadeMode = CascadeMode.Continue;
+
             RuleFor(model => model.PersonFirstName).NotNull().Length(3, 20);
             RuleFor(model => model.PersonLastName).NotNull().Length(3, 20);
         }
-
-        #endregion
     }
 
     public class JustAnotherPersonViewModelValidatorButDoNothing : AbstractValidator<PersonViewModel>

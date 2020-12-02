@@ -15,16 +15,14 @@ namespace Orc.FluentValidation.Tests.Validators
     [ValidatorDescription("Person")]
     public class PersonViewModelWithModelValidator : AbstractValidator<PersonViewModelWithModel>
     {
-        #region Constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonViewModelWithModelValidator"/> class.
         /// </summary>
         public PersonViewModelWithModelValidator()
         {
+            CascadeMode = CascadeMode.Continue;
+
             RuleFor(model => model.Person).SetValidator(new PersonModelValidator());
         }
-
-        #endregion
     }
 }
