@@ -9,6 +9,7 @@ namespace Orc.FluentValidation
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Catel;
     using Catel.Data;
@@ -42,7 +43,8 @@ namespace Orc.FluentValidation
         /// </param>
         private FluentValidatorToCatelValidatorAdapter(Type validatorType)
         {
-            _validator = (global::FluentValidation.IValidator) Activator.CreateInstance(validatorType);
+            _validator = (global::FluentValidation.IValidator)Activator.CreateInstance(validatorType);
+
             if (!validatorType.TryGetAttribute(out _validatorDescriptionAttribute))
             {
                 _validatorDescriptionAttribute = new ValidatorDescriptionAttribute(validatorType.Name);
@@ -64,11 +66,13 @@ namespace Orc.FluentValidation
                 var validationResult = _validator.Validate(validationContext);
                 if (!validationResult.IsValid)
                 {
-                    validationResults.AddRange(validationResult.Errors.Select(validationFailure => new BusinessRuleValidationResult(
+                    var dinstinctValidationResults = validationResult.Errors.Select(validationFailure => new BusinessRuleValidationResult(
                         _validatorDescriptionAttribute.ValidationResultType, validationFailure.ErrorMessage)
                     {
                         Tag = _validatorDescriptionAttribute.Tag
-                    }).Cast<IBusinessRuleValidationResult>());
+                    }).Distinct(new BusinessRuleValidationResultEqualityComparer()).Cast<IBusinessRuleValidationResult>();
+
+                    validationResults.AddRange(dinstinctValidationResults);
                 }
             }
         }
@@ -86,12 +90,14 @@ namespace Orc.FluentValidation
                 var validationResult = _validator.Validate(validationContext);
                 if (!validationResult.IsValid)
                 {
-                    validationResults.AddRange(validationResult.Errors.Select(fieldValidationResult => new FieldValidationResult(
+                    var distinctValidationResults = validationResult.Errors.Select(fieldValidationResult => new FieldValidationResult(
                         fieldValidationResult.PropertyName, _validatorDescriptionAttribute.ValidationResultType,
                         fieldValidationResult.ErrorMessage)
                     {
                         Tag = _validatorDescriptionAttribute.Tag
-                    }).Cast<IFieldValidationResult>());
+                    }).Distinct(new FieldValidationResultEqualityComparer()).Cast<IFieldValidationResult>();
+
+                    validationResults.AddRange(distinctValidationResults);
                 }
             }
         }
@@ -131,9 +137,11 @@ namespace Orc.FluentValidation
             }
 
             IValidator validator;
+
             if (validatorTypes.Count > 1)
             {
                 var compositeValidator = new CompositeValidator();
+
                 foreach (var validatorType in validatorTypes)
                 {
                     compositeValidator.Add(From(validatorType));
@@ -158,6 +166,89 @@ namespace Orc.FluentValidation
             where TValidator : global::FluentValidation.IValidator, new()
         {
             return new FluentValidatorToCatelValidatorAdapter(typeof(TValidator));
+        }
+
+        private class BusinessRuleValidationResultEqualityComparer : EqualityComparer<IBusinessRuleValidationResult>
+        {
+            public override bool Equals([AllowNull] IBusinessRuleValidationResult x, [AllowNull] IBusinessRuleValidationResult y)
+            {
+                if (x is null && y is null)
+                {
+                    return true;
+                }
+
+                if (x is null || y is null)
+                {
+                    return false;
+                }
+
+                if (x.Message != y.Message)
+                {
+                    return false;
+                }
+
+                if (!ObjectHelper.AreEqual(x.Tag, y.Tag))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            public override int GetHashCode([DisallowNull] IBusinessRuleValidationResult obj)
+            {
+                if (obj is null)
+                {
+                    return 0;
+                }
+
+                var key = $"{obj.Message}_{obj.ValidationResultType}_{obj.Tag}";
+                return key.GetHashCode();
+            }
+        }
+
+        private class FieldValidationResultEqualityComparer : EqualityComparer<IFieldValidationResult>
+        {
+            public override bool Equals([AllowNull] IFieldValidationResult x, [AllowNull] IFieldValidationResult y)
+            {
+                if (x is null && y is null)
+                {
+                    return true;
+                }
+
+                if (x is null || y is null)
+                {
+                    return false;
+                }
+
+                if (x.PropertyName != y.PropertyName)
+                {
+                    return false;
+                }
+
+                if (x.Message != y.Message)
+                {
+                    return false;
+                }
+
+                if (!ObjectHelper.AreEqual(x.Tag, y.Tag))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            public override int GetHashCode([DisallowNull] IFieldValidationResult obj)
+            {
+                if (obj is null)
+                {
+                    return 0;
+                }
+
+                var key = $"{obj.PropertyName}_{obj.Message}_{obj.ValidationResultType}_{obj.Tag}";
+                return key.GetHashCode();
+            }
         }
         #endregion
     }
