@@ -78,11 +78,11 @@ namespace Orc.FluentValidation
                     bool found = false;
                     while (!found && currentType != typeof(object))
                     {
-                        if (currentType != null)
+                        if (currentType is not null)
                         {
                             var genericArguments = currentType.GetGenericArgumentsEx();
 
-                            found = currentType.IsGenericTypeEx() && genericArguments.FirstOrDefault(type => type.IsAssignableFromEx(targetType)) != null;
+                            found = currentType.IsGenericTypeEx() && genericArguments.FirstOrDefault(type => type.IsAssignableFromEx(targetType)) is not null;
                             if (!found)
                             {
                                 currentType = currentType.GetBaseTypeEx();
