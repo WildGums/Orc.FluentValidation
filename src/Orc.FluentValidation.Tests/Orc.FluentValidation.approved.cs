@@ -25,7 +25,7 @@ namespace Orc.FluentValidation
         Field = 0,
         BusinessRule = 1,
     }
-    [System.AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.All, AllowMultiple=false, Inherited=false)]
+    [System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple=false, Inherited=false)]
     public class ValidatorDescriptionAttribute : System.Attribute
     {
         public ValidatorDescriptionAttribute(string tag, Catel.Data.ValidationResultType validationResultType = 1, Orc.FluentValidation.ValidationType validationType = 0) { }
