@@ -1,5 +1,5 @@
 ﻿[assembly: System.Resources.NeutralResourcesLanguage("en-US")]
-[assembly: System.Runtime.Versioning.TargetFramework(".NETCoreApp,Version=v5.0", FrameworkDisplayName="")]
+[assembly: System.Runtime.Versioning.TargetFramework(".NETCoreApp,Version=v6.0", FrameworkDisplayName="")]
 public static class ModuleInitializer
 {
     public static void Initialize() { }
@@ -25,7 +25,7 @@ namespace Orc.FluentValidation
         Field = 0,
         BusinessRule = 1,
     }
-    [System.AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.All, AllowMultiple=false, Inherited=false)]
+    [System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple=false, Inherited=false)]
     public class ValidatorDescriptionAttribute : System.Attribute
     {
         public ValidatorDescriptionAttribute(string tag, Catel.Data.ValidationResultType validationResultType = 1, Orc.FluentValidation.ValidationType validationType = 0) { }
