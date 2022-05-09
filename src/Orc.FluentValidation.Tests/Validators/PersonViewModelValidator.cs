@@ -25,7 +25,7 @@ namespace Orc.FluentValidation.Tests.Validators
         /// </summary>
         public PersonViewModelValidator()
         {
-            CascadeMode = CascadeMode.Continue;
+            ClassLevelCascadeMode = CascadeMode.Continue;
 
             RuleFor(model => model.PersonFirstName).NotNull().NotEmpty();
             RuleFor(model => model.PersonLastName).NotNull().NotEmpty();
@@ -43,7 +43,7 @@ namespace Orc.FluentValidation.Tests.Validators
         /// </summary>
         public PersonViewModelValidatorWarnings()
         {
-            CascadeMode = CascadeMode.Continue;
+            ClassLevelCascadeMode = CascadeMode.Continue;
 
             RuleFor(model => model.PersonFirstName).NotNull().Length(3, 20);
             RuleFor(model => model.PersonLastName).NotNull().Length(3, 20);

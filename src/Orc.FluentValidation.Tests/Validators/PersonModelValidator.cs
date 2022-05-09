@@ -19,7 +19,7 @@ namespace Orc.FluentValidation.Tests.Validators
         /// </summary>
         public PersonModelValidator()
         {
-            CascadeMode = CascadeMode.Continue;
+            ClassLevelCascadeMode = CascadeMode.Continue;
 
             RuleFor(person => person.FirstName).NotNull().NotEmpty();
             RuleFor(person => person.LastName).NotNull().NotEmpty();

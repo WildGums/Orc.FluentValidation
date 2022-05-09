@@ -29,7 +29,8 @@ namespace Orc.FluentValidation
         /// </summary>
         public FluentValidatorProvider()
         {
-            ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
+            ValidatorOptions.Global.DefaultClassLevelCascadeMode = CascadeMode.Stop;
+            ValidatorOptions.Global.DefaultRuleLevelCascadeMode = CascadeMode.Stop;
             ValidatorOptions.Global.DisplayNameResolver = (type, member, expression) =>
             {
                 var displayName = member.Name;

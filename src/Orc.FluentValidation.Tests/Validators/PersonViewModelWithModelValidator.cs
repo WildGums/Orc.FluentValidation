@@ -20,7 +20,7 @@ namespace Orc.FluentValidation.Tests.Validators
         /// </summary>
         public PersonViewModelWithModelValidator()
         {
-            CascadeMode = CascadeMode.Continue;
+            ClassLevelCascadeMode = CascadeMode.Continue;
 
             RuleFor(model => model.Person).SetValidator(new PersonModelValidator());
         }
