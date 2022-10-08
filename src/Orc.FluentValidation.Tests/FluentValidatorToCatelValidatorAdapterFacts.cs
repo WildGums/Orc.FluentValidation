@@ -1,16 +1,9 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FluentValidatorToCatelValidatorAdapterTest.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Orc.FluentValidation.Tests
+﻿namespace Orc.FluentValidation.Tests
 {
     using System;
     using System.Collections.Generic;
 
     using Catel.Data;
-    using Catel.Tests;
     using NUnit.Framework;
     using Validators;
 
@@ -25,8 +18,6 @@ namespace Orc.FluentValidation.Tests
         [TestFixture]
         public class TheFromGenericMethod
         {
-            #region Public Methods and Operators
-
             /// <summary>
             /// The creates the adapter validator from a collection with a single validator type.
             /// </summary>
@@ -36,8 +27,6 @@ namespace Orc.FluentValidation.Tests
                 var validator = FluentValidatorToCatelValidatorAdapter.From<PersonViewModelValidatorWarnings>();
                 Assert.IsInstanceOf(typeof(FluentValidatorToCatelValidatorAdapter), validator);
             }
-
-            #endregion
         }
 
         /// <summary>
@@ -46,8 +35,6 @@ namespace Orc.FluentValidation.Tests
         [TestFixture]
         public class TheFromMethod
         {
-            #region Public Methods and Operators
-
             /// <summary>
             /// The from helper method creates validator from a collection with a single validator type element.
             /// </summary>
@@ -78,10 +65,8 @@ namespace Orc.FluentValidation.Tests
             [TestCase]
             public void ThrowsArgumentExceptionIfTheListIsEmpty()
             {
-                ExceptionTester.CallMethodAndExpectException<ArgumentException>(() => FluentValidatorToCatelValidatorAdapter.From(new List<Type>()));
+                Assert.Throws<ArgumentException>(() => FluentValidatorToCatelValidatorAdapter.From(new List<Type>()));
             }
-
-            #endregion
         }
     }
 }

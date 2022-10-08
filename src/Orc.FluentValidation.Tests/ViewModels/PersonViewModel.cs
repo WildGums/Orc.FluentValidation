@@ -1,10 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="PersonViewModel.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Orc.FluentValidation.Tests.ViewModels
+﻿namespace Orc.FluentValidation.Tests.ViewModels
 {
     using Catel.Data;
     using Catel.MVVM;
@@ -14,21 +8,15 @@ namespace Orc.FluentValidation.Tests.ViewModels
     /// </summary>
     public class PersonViewModel : ViewModelBase
     {
-        #region Constants and Fields
-
         /// <summary>
         /// The first name property.
         /// </summary>
-        public static readonly PropertyData FirstNameProperty = RegisterProperty("PersonFirstName", typeof(string));
+        public static readonly IPropertyData FirstNameProperty = RegisterProperty<string>("PersonFirstName");
 
         /// <summary>
         /// The last name property.
         /// </summary>
-        public static readonly PropertyData LastNameProperty = RegisterProperty("PersonLastName", typeof(string));
-
-        #endregion
-
-        #region Public Properties
+        public static readonly IPropertyData LastNameProperty = RegisterProperty<string>("PersonLastName");
 
         /// <summary>
         /// Gets or sets PersonFirstName.
@@ -49,7 +37,5 @@ namespace Orc.FluentValidation.Tests.ViewModels
             get { return GetValue<string>(LastNameProperty); }
             set { SetValue(LastNameProperty, value); }
         }
-
-        #endregion
     }
 }

@@ -9,7 +9,7 @@ namespace Orc.FluentValidation
     public class FluentValidatorProvider : Catel.Data.ValidatorProviderBase
     {
         public FluentValidatorProvider() { }
-        protected override Catel.Data.IValidator GetValidator(System.Type targetType) { }
+        protected override Catel.Data.IValidator? GetValidator(System.Type targetType) { }
     }
     public class FluentValidatorToCatelValidatorAdapter : Catel.Data.ValidatorBase<Catel.Data.ModelBase>
     {

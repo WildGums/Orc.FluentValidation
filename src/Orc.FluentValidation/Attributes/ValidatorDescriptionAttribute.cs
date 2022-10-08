@@ -1,11 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ValidatorDescriptionAttribute.cs" company="WildGums">
-//   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-
-namespace Orc.FluentValidation
+﻿namespace Orc.FluentValidation
 {
     using System;
     using Catel.Data;
@@ -16,7 +9,6 @@ namespace Orc.FluentValidation
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class ValidatorDescriptionAttribute : Attribute
     {
-        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidatorDescriptionAttribute" /> class.
         /// </summary>
@@ -30,9 +22,7 @@ namespace Orc.FluentValidation
             ValidationResultType = validationResultType;
             ValidationType = validationType;
         }
-        #endregion
 
-        #region Properties
         /// <summary>
         /// Gets the validation tag.
         /// </summary>
@@ -47,6 +37,5 @@ namespace Orc.FluentValidation
         /// Gets the validation type.
         /// </summary>
         public ValidationType ValidationType { get; private set; }
-        #endregion
     }
 }

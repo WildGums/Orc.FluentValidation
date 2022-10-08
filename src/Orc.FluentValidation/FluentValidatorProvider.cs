@@ -1,15 +1,9 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FluentValidatorProvider.cs" company="WildGums">
-//   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-
-namespace Orc.FluentValidation
+﻿namespace Orc.FluentValidation
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Catel.ComponentModel;
     using Catel.Data;
     using Catel.Reflection;
     using global::FluentValidation;
@@ -23,7 +17,6 @@ namespace Orc.FluentValidation
     /// </remarks>
     public class FluentValidatorProvider : ValidatorProviderBase
     {
-        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentValidatorProvider"/> class.
         /// </summary>
@@ -35,7 +28,7 @@ namespace Orc.FluentValidation
             {
                 var displayName = member.Name;
 
-                if (member.TryGetAttribute(out Catel.ComponentModel.DisplayNameAttribute displayNameAttribute))
+                if (member.TryGetAttribute<DisplayNameAttribute>(out var displayNameAttribute))
                 {
                     displayName = displayNameAttribute.DisplayName;
                 }
@@ -43,9 +36,7 @@ namespace Orc.FluentValidation
                 return displayName;
             };
         }
-        #endregion
 
-        #region Methods
         /// <summary>
         /// Gets a validator for the specified target type.
         /// </summary>
@@ -61,9 +52,11 @@ namespace Orc.FluentValidation
         /// If only one Validator is found an instance of <see cref="FluentValidatorToCatelValidatorAdapter"/> is returned, otherwise a
         /// <see cref="CompositeValidator"/> is created from a collection of it's corresponding <see cref="FluentValidatorToCatelValidatorAdapter"/>.
         /// </returns>
-        protected override Catel.Data.IValidator GetValidator(Type targetType)
+        protected override Catel.Data.IValidator? GetValidator(Type targetType)
         {
-            IValidator validator = null;
+            ArgumentNullException.ThrowIfNull(targetType);
+
+            IValidator? validator = null;
 
             // NOTE: Patch for performance issue the validator of a viewmodel must be in the same assembly of the view model.
 
@@ -105,6 +98,5 @@ namespace Orc.FluentValidation
 
             return validator;
         }
-        #endregion
     }
 }

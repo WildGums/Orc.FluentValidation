@@ -1,11 +1,6 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="PersonViewModelWithModel.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Orc.FluentValidation.Tests.ViewModels
+﻿namespace Orc.FluentValidation.Tests.ViewModels
 {
+    using System.ComponentModel;
     using Catel.Data;
     using Catel.MVVM;
     using Models;
@@ -15,16 +10,8 @@ namespace Orc.FluentValidation.Tests.ViewModels
     /// </summary>
     public class PersonViewModelWithModel : ViewModelBase
     {
-        #region Constants
-
         /// <summary>Register the Person property so it is known in the class.</summary>
-        public static readonly PropertyData PersonProperty = RegisterProperty("Person", typeof(Person), default(Person), (s, e) => ((PersonViewModelWithModel)s).OnPersonChanged(e));
-        #endregion
-
-        #region Constructors
-        #endregion
-
-        #region Properties
+        public static readonly IPropertyData PersonProperty = RegisterProperty("Person", default(Person), (s, e) => ((PersonViewModelWithModel)s).OnPersonChanged(e));
 
         /// <summary>
         /// Gets or sets Person.
@@ -35,9 +22,6 @@ namespace Orc.FluentValidation.Tests.ViewModels
             get { return GetValue<Person>(PersonProperty); }
             set { SetValue(PersonProperty, value); }
         }
-        #endregion
-
-        #region Methods
 
         /// <summary>
         /// Occurs when the value of the Person property is changed.
@@ -45,10 +29,8 @@ namespace Orc.FluentValidation.Tests.ViewModels
         /// <param name="e">
         /// The event argument
         /// </param>
-        private void OnPersonChanged(AdvancedPropertyChangedEventArgs e)
+        private void OnPersonChanged(PropertyChangedEventArgs e)
         {
         }
-
-        #endregion
     }
 }
