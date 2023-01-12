@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FluentValidatorProviderFacts.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Catel.Test.Extensions.FluentValidation
+﻿namespace Catel.Test.Extensions.FluentValidation
 {
     using Catel.Data;
     using Catel.IoC;
