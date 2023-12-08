@@ -25,7 +25,7 @@
             public void CreatesTheAdapterValidatorFromACollectionWithASingleValidatorType()
             {
                 var validator = FluentValidatorToCatelValidatorAdapter.From<PersonViewModelValidatorWarnings>();
-                Assert.IsInstanceOf(typeof(FluentValidatorToCatelValidatorAdapter), validator);
+                Assert.That(validator, Is.InstanceOf(typeof(FluentValidatorToCatelValidatorAdapter)));
             }
         }
 
@@ -41,10 +41,10 @@
             [TestCase]
             public void CreatesACompositeValidatorFromACollectionOfValidatorType()
             {
-                IValidator validator =
+                var validator =
                     FluentValidatorToCatelValidatorAdapter.From(
                         new List<Type> { typeof(PersonViewModelValidatorWarnings), typeof(PersonViewModelValidator) });
-                Assert.IsInstanceOf(typeof(CompositeValidator), validator);
+                Assert.That(validator, Is.InstanceOf(typeof(CompositeValidator)));
             }
 
             /// <summary>
@@ -53,10 +53,10 @@
             [TestCase]
             public void CreatesTheAdapterValidatorFromACollectionWithASingleValidatorType()
             {
-                IValidator validator =
+                var validator =
                     FluentValidatorToCatelValidatorAdapter.From(
                         new List<Type> { typeof(PersonViewModelValidatorWarnings) });
-                Assert.IsInstanceOf(typeof(FluentValidatorToCatelValidatorAdapter), validator);
+                Assert.That(validator, Is.InstanceOf(typeof(FluentValidatorToCatelValidatorAdapter)));
             }
 
             /// <summary>

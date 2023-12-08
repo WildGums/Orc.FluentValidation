@@ -69,7 +69,7 @@
                 if (typeof(global::FluentValidation.IValidator).IsAssignableFromEx(exportedType))
                 {
                     var currentType = exportedType;
-                    bool found = false;
+                    var found = false;
                     while (!found && currentType != typeof(object))
                     {
                         if (currentType is not null)
