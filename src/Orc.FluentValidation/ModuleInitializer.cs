@@ -1,4 +1,4 @@
-using Catel.IoC;
+﻿using Catel.IoC;
 using Catel.Services;
 
 /// <summary>
@@ -15,7 +15,7 @@ public static class ModuleInitializer
 
 		// TODO: register services here
 
-        var languageService = serviceLocator.ResolveType<ILanguageService>();
+        var languageService = serviceLocator.ResolveRequiredType<ILanguageService>();
         languageService.RegisterLanguageSource(new LanguageResourceSource("Orc.FluentValidation", "Orc.FluentValidation.Properties", "Resources"));
     }
 }

@@ -1,11 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FluentValidatorToCatelValidatorAdapter.cs" company="WildGums">
-//   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-
-namespace Orc.FluentValidation
+﻿namespace Orc.FluentValidation
 {
     using System;
     using System.Collections.Generic;
@@ -13,6 +6,7 @@ namespace Orc.FluentValidation
     using System.Linq;
     using Catel;
     using Catel.Data;
+    using Catel.Fody;
     using Catel.Reflection;
     using global::FluentValidation;
     using IValidator = Catel.Data.IValidator;
@@ -20,9 +14,9 @@ namespace Orc.FluentValidation
     /// <summary>
     /// The fluent to catel validator adapter.
     /// </summary>
+    [NoWeaving]
     public class FluentValidatorToCatelValidatorAdapter : ValidatorBase<ModelBase>
     {
-        #region Fields
         /// <summary>
         /// The validator.
         /// </summary>
@@ -32,9 +26,7 @@ namespace Orc.FluentValidation
         /// The validator description attribute.
         /// </summary>
         private readonly ValidatorDescriptionAttribute _validatorDescriptionAttribute;
-        #endregion
 
-        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentValidatorToCatelValidatorAdapter"/> class.
         /// </summary>
@@ -43,16 +35,24 @@ namespace Orc.FluentValidation
         /// </param>
         private FluentValidatorToCatelValidatorAdapter(Type validatorType)
         {
-            _validator = (global::FluentValidation.IValidator)Activator.CreateInstance(validatorType);
+            ArgumentNullException.ThrowIfNull(validatorType);
 
-            if (!validatorType.TryGetAttribute(out _validatorDescriptionAttribute))
+            var validator = Activator.CreateInstance(validatorType) as global::FluentValidation.IValidator;
+            if (validator is null)
             {
-                _validatorDescriptionAttribute = new ValidatorDescriptionAttribute(validatorType.Name);
+                throw new InvalidOperationException($"Cannot create validator type '{validatorType.GetType().GetSafeFullName()}'");
             }
-        }
-        #endregion
 
-        #region Methods
+            _validator = validator;
+
+            if (!validatorType.TryGetAttribute<ValidatorDescriptionAttribute>(out var validatorDescriptionAttribute))
+            {
+                validatorDescriptionAttribute = new ValidatorDescriptionAttribute(validatorType.Name);
+            }
+
+            _validatorDescriptionAttribute = validatorDescriptionAttribute;
+        }
+
         /// <summary>
         /// The validate business rules.
         /// </summary>
@@ -60,6 +60,9 @@ namespace Orc.FluentValidation
         /// <param name="validationResults">The validation results.</param>
         protected override void ValidateBusinessRules(ModelBase instance, List<IBusinessRuleValidationResult> validationResults)
         {
+            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullException.ThrowIfNull(validationResults);
+
             if (_validatorDescriptionAttribute.ValidationType == ValidationType.BusinessRule)
             {
                 var validationContext = new global::FluentValidation.ValidationContext<ModelBase>(instance);
@@ -84,6 +87,9 @@ namespace Orc.FluentValidation
         /// <param name="validationResults">The validation results.</param>
         protected override void ValidateFields(ModelBase instance, List<IFieldValidationResult> validationResults)
         {
+            ArgumentNullException.ThrowIfNull(instance);
+            ArgumentNullException.ThrowIfNull(validationResults);
+
             if (_validatorDescriptionAttribute.ValidationType == ValidationType.Field)
             {
                 var validationContext = new global::FluentValidation.ValidationContext<ModelBase>(instance);
@@ -113,7 +119,7 @@ namespace Orc.FluentValidation
         /// <exception cref="ArgumentException">The <paramref name="validatorType" /> is not of type <see cref="IValidator" />.</exception>
         public static IValidator From(Type validatorType)
         {
-            Argument.IsNotNull("validatorType", validatorType);
+            ArgumentNullException.ThrowIfNull(validatorType);
             Argument.IsOfType("validatorType", validatorType, typeof(global::FluentValidation.IValidator));
 
             return new FluentValidatorToCatelValidatorAdapter(validatorType);
@@ -129,7 +135,7 @@ namespace Orc.FluentValidation
         /// <exception cref="ArgumentNullException">If <paramref name="validatorTypes" /> is <c>null</c>.</exception>
         public static IValidator From(IList<Type> validatorTypes)
         {
-            Argument.IsNotNull("validatorTypes", validatorTypes);
+            ArgumentNullException.ThrowIfNull(validatorTypes);
 
             if (validatorTypes.Count == 0)
             {
@@ -151,7 +157,8 @@ namespace Orc.FluentValidation
             }
             else
             {
-                validator = From(validatorTypes.FirstOrDefault());
+                var firstValidator = validatorTypes.First();
+                validator = From(firstValidator);
             }
 
             return validator;
@@ -250,6 +257,5 @@ namespace Orc.FluentValidation
                 return key.GetHashCode();
             }
         }
-        #endregion
     }
 }

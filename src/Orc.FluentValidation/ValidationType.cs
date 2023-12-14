@@ -1,11 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ValidationType.cs" company="WildGums">
-//   Copyright (c) 2008 - 2017 WildGums. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-
-namespace Orc.FluentValidation
+﻿namespace Orc.FluentValidation
 {
     /// <summary>
     /// Type of validation type.

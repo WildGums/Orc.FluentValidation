@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="PersonViewModelWithModelValidator.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Orc.FluentValidation.Tests.Validators
+﻿namespace Orc.FluentValidation.Tests.Validators
 {
     using global::FluentValidation;
     using ViewModels;
@@ -20,7 +14,7 @@ namespace Orc.FluentValidation.Tests.Validators
         /// </summary>
         public PersonViewModelWithModelValidator()
         {
-            CascadeMode = CascadeMode.Continue;
+            ClassLevelCascadeMode = CascadeMode.Continue;
 
             RuleFor(model => model.Person).SetValidator(new PersonModelValidator());
         }

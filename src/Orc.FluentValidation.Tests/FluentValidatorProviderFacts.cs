@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FluentValidatorProviderFacts.cs" company="Catel development team">
-//   Copyright (c) 2008 - 2015 Catel development team. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Catel.Test.Extensions.FluentValidation
+﻿namespace Catel.Test.Extensions.FluentValidation
 {
     using Catel.Data;
     using Catel.IoC;
@@ -44,7 +38,7 @@ namespace Catel.Test.Extensions.FluentValidation
 
                 var validationSummary = personViewModel.GetValidationContext().GetValidationSummary("Person");
 
-                Assert.IsTrue(validationSummary.HasErrors);
+                Assert.That(validationSummary.HasErrors, Is.True);
             }
 
             /// <summary>
@@ -59,8 +53,8 @@ namespace Catel.Test.Extensions.FluentValidation
 
                 var validationSummary = personViewModel.GetValidationContext().GetValidationSummary("Person");
 
-                Assert.IsFalse(validationSummary.HasErrors);
-                Assert.IsFalse(validationSummary.HasWarnings);
+                Assert.That(validationSummary.HasErrors, Is.False);
+                Assert.That(validationSummary.HasWarnings, Is.False);
             }
 
             /// <summary>
@@ -74,17 +68,17 @@ namespace Catel.Test.Extensions.FluentValidation
 
                 var validationSummary = personViewModel.GetValidationContext().GetValidationSummary("Person");
 
-                Assert.IsTrue(validationSummary.HasErrors);
-                Assert.IsTrue(validationSummary.HasFieldErrors);
-                Assert.AreEqual(2, validationSummary.FieldErrors.Count);
-                Assert.IsTrue(validationSummary.FieldErrors[0].Message.Contains("First name"));
-                Assert.IsTrue(validationSummary.FieldErrors[1].Message.Contains("Last name"));
+                Assert.That(validationSummary.HasErrors, Is.True);
+                Assert.That(validationSummary.HasFieldErrors, Is.True);
+                Assert.That(validationSummary.FieldErrors.Count, Is.EqualTo(2));
+                Assert.That(validationSummary.FieldErrors[0].Message.Contains("First name"), Is.True);
+                Assert.That(validationSummary.FieldErrors[1].Message.Contains("Last name"), Is.True);
 
-                Assert.IsTrue(validationSummary.HasWarnings);
-                Assert.IsTrue(validationSummary.HasBusinessRuleWarnings);
-                Assert.AreEqual(2, validationSummary.BusinessRuleWarnings.Count);
-                Assert.IsTrue(validationSummary.BusinessRuleWarnings[0].Message.Contains("First name"));
-                Assert.IsTrue(validationSummary.BusinessRuleWarnings[1].Message.Contains("Last name"));
+                Assert.That(validationSummary.HasWarnings, Is.True);
+                Assert.That(validationSummary.HasBusinessRuleWarnings, Is.True);
+                Assert.That(validationSummary.BusinessRuleWarnings.Count, Is.EqualTo(2));
+                Assert.That(validationSummary.BusinessRuleWarnings[0].Message.Contains("First name"), Is.True);
+                Assert.That(validationSummary.BusinessRuleWarnings[1].Message.Contains("Last name"), Is.True);
             }
 
             /// <summary>
@@ -94,9 +88,9 @@ namespace Catel.Test.Extensions.FluentValidation
             public void PersonViewWithOutValidatorTest()
             {
                 var validatorProvider = ServiceLocator.Default.ResolveType<IValidatorProvider>();
-                IValidator validator = validatorProvider.GetValidator(typeof(NoFluentValidatorViewModel));
+                var validator = validatorProvider.GetValidator(typeof(NoFluentValidatorViewModel));
 
-                Assert.IsNull(validator);
+                Assert.That(validator, Is.Null);
             }
         }
 
@@ -123,11 +117,11 @@ namespace Catel.Test.Extensions.FluentValidation
             {
                 var validatorProvider = ServiceLocator.Default.ResolveType<IValidatorProvider>();
 
-                IValidator validator1 = validatorProvider.GetValidator(typeof(PersonViewModel));
-                Assert.IsNotNull(validator1);
+                var validator1 = validatorProvider.GetValidator(typeof(PersonViewModel));
+                Assert.That(validator1, Is.Not.Null);
 
-                IValidator validator2 = validatorProvider.GetValidator(typeof(PersonViewModel));
-                Assert.AreEqual(validator1, validator2);
+                var validator2 = validatorProvider.GetValidator(typeof(PersonViewModel));
+                Assert.That(validator2, Is.EqualTo(validator1));
             }
 
             /// <summary>
@@ -137,11 +131,11 @@ namespace Catel.Test.Extensions.FluentValidation
             public void ReturnsDifferentInstancesIfCacheTurnedOff()
             {
                 var validatorProvider = ServiceLocator.Default.ResolveType<IValidatorProvider>();
-                IValidator validator1 = validatorProvider.GetValidator(typeof(PersonViewModel));
-                Assert.IsNotNull(validator1);
+                var validator1 = validatorProvider.GetValidator(typeof(PersonViewModel));
+                Assert.That(validator1, Is.Not.Null);
                 ((ValidatorProviderBase)validatorProvider).UseCache = false;
-                IValidator validator2 = validatorProvider.GetValidator(typeof(PersonViewModel));
-                Assert.AreNotEqual(validator1, validator2);
+                var validator2 = validatorProvider.GetValidator(typeof(PersonViewModel));
+                Assert.That(validator2, Is.Not.EqualTo(validator1));
             }
         }
     }
